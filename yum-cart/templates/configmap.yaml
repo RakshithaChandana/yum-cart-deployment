@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "yum-cart.fullname" . }}-config
+  labels:
+    {{- include "yum-cart.labels" . | nindent 4 }}
+data:
+  APP_ENV: {{ .Values.config.APP_ENV | quote }}
+  LOG_LEVEL: {{ .Values.config.LOG_LEVEL | quote }}
+
