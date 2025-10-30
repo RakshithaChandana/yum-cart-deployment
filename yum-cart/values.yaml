@@ -68,7 +68,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: yum-cart-test.ac04d4c846f284bc5a96ae885e80cf00-640419438.us-east-1.elb.amazonaws.com
+    - host: ac04d4c846f284bc5a96ae885e80cf00-640419438.us-east-1.elb.amazonaws.com
       paths:
         - path: /
           pathType: ImplementationSpecific
