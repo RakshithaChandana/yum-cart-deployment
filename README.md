@@ -17,42 +17,15 @@ Whenever a change is pushed (new image tag, configuration, etc.), ArgoCD automat
 Prometheus collects cluster metrics and Grafana visualizes them using imported dashboards.
 
 ---
-    🧭 Deployment Flow Diagram
+🧭 End-to-End DevOps Pipeline
 
-    ┌─────────────────────────┐
-    │       Developer       │
-    │  (Push code to GitHub)  │
-    └────────────┬────────────┘
-                  │
-                  ▼
-    ┌─────────────────────────┐
-    │       Jenkins CI       │
-    │ Builds Docker image,  │
-    │ Runs tests & scans,    │
-    │ Pushes to DockerHub,  │
-    │ Updates values.yaml in │
-    │ yum-cart-deployment   │
-    └────────────┬────────────┘
-                  │
-                  ▼
-    ┌─────────────────────────┐
-    │        ArgoCD        │
-    │ Detects Git changes,  │
-    │ Syncs app to cluster  │
-    └────────────┬────────────┘
-                  │
-                  ▼
-    ┌─────────────────────────┐
-    │      Kubernetes       │
-    │ Deploys via Helm,     │
-    │ Exposes via Ingress   │
-    └────────────┬────────────┘
-                  │
-                  ▼
-    ┌─────────────────────────┐
-    │ Prometheus & Grafana │
-    │ Monitor metrics & logs│
-    └─────────────────────────┘
+Developer
+   │
+   ▼
+GitHub  ───►  Jenkins (CI/CD)
+              │
+              ▼
+          DockerHub  ───►  ArgoCD  ───►  Kubernetes Cluster  ───►  Prometheus & Grafana
   
 
 ---
